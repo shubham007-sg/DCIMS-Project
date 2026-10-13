@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DCIMS | Digital Crime Investigation Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-shield">⬡</div><div><strong>DCIMS</strong><small>Digital Crime Investigation<br>Management System</small></div></div>
+    <nav id="nav">
+      <button class="nav-item active" data-page="Dashboard">⌂ <span>Dashboard</span></button>
+      <button class="nav-item" data-page="Crime Cases">▣ <span>Crime Cases</span></button>
+      <button class="nav-item" data-page="Suspects">♙ <span>Suspects</span></button>
+      <button class="nav-item" data-page="Investigators">♟ <span>Investigators</span></button>
+      <button class="nav-item" data-page="Evidence">▤ <span>Evidence</span></button>
+      <button class="nav-item" data-page="Reports">▥ <span>Reports</span></button>
+      <button class="nav-item" data-page="Analytics">⌁ <span>Analytics</span></button>
+      <button class="nav-item" data-page="Case Timeline">◷ <span>Case Timeline</span></button>
+      <button class="nav-item" data-page="Messages">✉ <span>Messages</span></button>
+      <button class="nav-item" data-page="Settings">⚙ <span>Settings</span></button>
+    </nav>
+    <div class="system-status"><small>System Status</small><p><i></i> Online</p><small>Local demo server</small><strong id="clock">--:--:--</strong></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <label class="search">⌕ <input id="globalSearch" placeholder="Search cases, suspects, investigators..."></label>
+      <div class="themes" aria-label="Color themes">
+        <button data-theme-choice="dark" class="theme-chip chosen">◈<span>Dark</span></button>
+        <button data-theme-choice="blue" class="theme-chip">◈<span>Blue</span></button>
+        <button data-theme-choice="purple" class="theme-chip">◈<span>Purple</span></button>
+        <button data-theme-choice="red" class="theme-chip">◈<span>Red</span></button>
+        <button data-theme-choice="green" class="theme-chip">◈<span>Green</span></button>
+        <button data-theme-choice="forest" class="theme-chip">◈<span>Forest</span></button>
+      </div>
+      <button class="notification" title="Notifications">♧<b>3</b></button>
+      <div class="profile"><div class="avatar">A</div><div><strong>Admin</strong><small>Investigation Officer</small></div><span>⌄</span></div>
+    </header>
+    <section class="hero">
+      <div class="hero-copy"><small id="today">INVESTIGATION COMMAND CENTER</small><h1>Welcome to <em>DCIMS</em></h1><h3>Digital Crime Investigation Management System</h3><p>Track, manage and solve cases efficiently with advanced investigation tools.</p><div class="hero-actions"><button class="primary" id="newCaseBtn">＋ New Case</button><button class="secondary" id="viewCasesBtn">▣ View All Cases</button></div></div>
+      <div class="hero-art"><div class="scan-ring"></div><div class="fingerprint">◎</div><div class="hero-quote">“Justice Through Investigation”</div></div>
+    </section>
+    <section class="stat-grid">
+      <article class="stat-card blue-stat"><div class="stat-icon">▤</div><div><small>Total Cases</small><strong id="totalCases">0</strong><small class="muted">Registered cases</small></div><span class="trend">↗ Live</span></article>
+      <article class="stat-card red-stat"><div class="stat-icon">◷</div><div><small>Pending Cases</small><strong id="pendingCases">0</strong><small class="muted">Need attention</small></div><span class="trend">● Active</span></article>
+      <article class="stat-card green-stat"><div class="stat-icon">✓</div><div><small>Solved Cases</small><strong id="solvedCases">0</strong><small class="muted">Cases closed</small></div><span class="trend">↗ Progress</span></article>
+      <article class="stat-card purple-stat"><div class="stat-icon">♙</div><div><small>Total Suspects</small><strong id="totalSuspects">0</strong><small class="muted">Tracked records</small></div><span class="trend">● Records</span></article>
+    </section>
+    <section class="analytics-grid">
+      <article class="panel status-panel"><div class="panel-title"><h3>Case Status Overview</h3><span>LIVE OVERVIEW</span></div><div class="donut-wrap"><div class="donut" id="donut"><div><strong id="donutTotal">0</strong><small>Total Cases</small></div></div><div class="legend" id="statusLegend"></div></div></article>
+      <article class="panel chart-panel"><div class="panel-title"><h3>Crime Type Statistics</h3><span>CASE BREAKDOWN</span></div><div class="bars" id="crimeBars"></div></article>
+      <article class="panel activity-panel"><div class="panel-title"><h3>Recent Activity</h3><a href="#" id="viewActivity">View All</a></div><div id="activityList" class="activity-list"></div></article>
+    </section>
+    <section class="lower-grid">
+      <article class="panel table-panel"><div class="panel-title"><h3>Recent Crime Cases</h3><button class="text-button" id="tableViewAll">View All Cases ↗</button></div><div class="table-scroll"><table><thead><tr><th>Case ID</th><th>Crime Type</th><th>Location</th><th>Status</th><th>Priority</th><th>Date</th><th>Actions</th></tr></thead><tbody id="caseRows"></tbody></table></div><div id="emptyState" class="empty-state" hidden>No cases yet. Select <b>New Case</b> to create your first record.</div></article>
+      <article class="panel map-panel"><div class="panel-title"><h3>Investigation Map</h3><span>DEMO LOCATIONS</span></div><div class="map-visual"><div class="map-grid"></div><div class="map-pin pin1"></div><div class="map-pin pin2"></div><div class="map-pin pin3"></div><div class="map-pin pin4"></div><div class="map-pin pin5"></div><div class="map-labels"><span>🔴 Delhi</span><span>🟠 Mumbai</span><span>🔵 Bangalore</span><span>🟢 Hyderabad</span><span>🟣 Chennai</span></div><div class="india-outline">INDIA<br><small>CASE ACTIVITY</small></div></div></article>
+    </section>
+    <section class="feature-grid">
+      <button class="feature-card" data-page="Crime Cases"><span class="feature-icon">▤</span><div><strong>Case Management</strong><small>Add, view, update and manage crime cases</small></div><b>➜</b></button>
+      <button class="feature-card suspect-feature" data-page="Suspects"><span class="feature-icon">♟</span><div><strong>Suspect Records</strong><small>Manage suspect details and track activities</small></div><b>➜</b></button>
+      <button class="feature-card evidence-feature" data-page="Evidence"><span class="feature-icon">◎</span><div><strong>Evidence Management</strong><small>Organize evidence references and documents</small></div><b>➜</b></button>
+    </section>
+  </main>
+</div>
+<dialog id="caseDialog"><form id="caseForm" method="dialog"><div class="dialog-head"><div><small>CASE MANAGEMENT</small><h2>Register New Case</h2></div><button type="button" class="close" id="closeDialog">×</button></div><label>Crime type<input name="type" required placeholder="e.g. Cyber Crime"></label><div class="form-row"><label>Location<input name="location" required placeholder="e.g. Pune"></label><label>Priority<select name="priority"><option>Medium</option><option>High</option><option>Low</option></select></label></div><label>Case description<textarea name="description" rows="3" placeholder="Brief summary of the case"></textarea></label><label>Assigned investigator<input name="investigator" placeholder="Officer name"></label><button class="primary submit" type="submit">＋ Create Case</button></form></dialog>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
